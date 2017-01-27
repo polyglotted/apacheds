@@ -18,10 +18,10 @@ WORKDIR /opt/${DS_NAME}
 COPY files/config.ldif /opt/${DS_NAME}/instances/default/conf/
 COPY files/sample.ldif /tmp/
 
-RUN chmod ugo+x bin/apacheds.sh &&
-    bin/apacheds.sh start && sleep 10 &&
+RUN chmod ugo+x bin/apacheds.sh && \
+    bin/apacheds.sh start && sleep 10 && \
     ldapmodify -h 127.0.0.1 -p 389 -x -a -v < /tmp/sample.ldif && \
-	bin/apacheds.sh stop && sleep 10 &&
+	bin/apacheds.sh stop && sleep 10 && \
 	rm /tmp/sample.ldif
 
 EXPOSE 389
