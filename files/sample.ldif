@@ -1,0 +1,182 @@
+dn: dc=ad,dc=polyglotted,dc=io
+objectClass: domainDNS
+objectClass: domain
+objectClass: top
+dc: ad
+instanceType: 5
+
+dn: ou=Admin,dc=ad,dc=polyglotted,dc=io
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+distinguishedName: ou=People,dc=ad,dc=polyglotted,dc=io
+
+dn: ou=People,dc=ad,dc=polyglotted,dc=io
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+distinguishedName: ou=Admin,dc=ad,dc=polyglotted,dc=io
+
+dn: ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+distinguishedName: ou=Groups,dc=ad,dc=polyglotted,dc=io
+
+dn: ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: organizationalUnit
+objectClass: top
+instanceType: 4
+ou: Project
+distinguishedName: ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+
+dn: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: group
+objectClass: top
+instanceType: 4
+cn: Space Cadets
+distinguishedName: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted
+ ,dc=io
+sAMAccountName: Space Cadets
+sAMAccountType: 268435456
+
+dn: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: group
+objectClass: top
+instanceType: 4
+cn: Junk Warriors
+distinguishedName: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotte
+ d,dc=io
+sAMAccountName: Junk Warriors
+sAMAccountType: 268435456
+
+dn: cn=Cookie Monsters,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: group
+objectClass: top
+instanceType: 4
+cn: Cookie Monsters
+distinguishedName: cn=Cookie Monsters,ou=Project,ou=Groups,dc=ad,dc=polyglot
+ ted,dc=io
+sAMAccountName: Junk Warriors
+sAMAccountType: 268435456
+
+dn: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: group
+objectClass: top
+instanceType: 4
+cn: Jolly Scouts
+distinguishedName: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted
+ ,dc=io
+sAMAccountName: Junk Warriors
+sAMAccountType: 268435456
+
+dn: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+objectClass: group
+objectClass: top
+instanceType: 4
+cn: Tinsel Clowns
+distinguishedName: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotte
+ d,dc=io
+sAMAccountName: Junk Warriors
+sAMAccountType: 268435456
+
+dn: cn=Shankar Vasudevan,ou=People,dc=ad,dc=polyglotted,dc=io
+objectClass: user
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Shankar Vasudevan
+instanceType: 4
+country: United Kingdom
+description: Director
+displayName: Shankar Vasudevan
+distinguishedName: cn=Shankar Vasudevan,ou=People,dc=ad,dc=polyglotted,dc=io
+givenName: Shankar
+member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+mail: shankar@polyglotted.io
+name: Shankar Vasudevan
+sAMAccountName: shankar.vasudevan
+sn: Vasudevan
+uid: shankar.vasudevan
+userPassword: polyglotted
+
+dn: cn=David Haines,ou=People,dc=ad,dc=polyglotted,dc=io
+objectClass: user
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: David Haines
+instanceType: 4
+country: United Kingdom
+description: Director
+displayName: David Haines
+distinguishedName: cn=David Haines,ou=People,dc=ad,dc=polyglotted,dc=io
+givenName: David
+member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+mail: david@polyglotted.io
+name: David Haines
+sAMAccountName: david.haines
+sn: Haines
+uid: david.haines
+userPassword: polyglotted
+
+dn: cn=Modeler User,ou=People,dc=ad,dc=polyglotted,dc=io
+objectClass: user
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Modeler User
+instanceType: 4
+country: United Kingdom
+description: Modeler
+displayName: Modeler User
+distinguishedName: cn=Modeler User,ou=People,dc=ad,dc=polyglotted,dc=io
+givenName: Modeler
+member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+mail: modeler@polyglotted.io
+name: Modeler User
+sAMAccountName: modeler.user
+sn: User
+uid: modeler.user
+userPassword: polyglotted
+
+dn: cn=Admin User,ou=People,dc=ad,dc=polyglotted,dc=io
+objectClass: user
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Admin User
+instanceType: 4
+country: United Kingdom
+description: Administrator
+displayName: Admin User
+distinguishedName: cn=Admin User,ou=People,dc=ad,dc=polyglotted,dc=io
+givenName: Admin
+member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
+mail: admin@polyglotted.io
+name: Admin User
+sAMAccountName: admin.user
+sn: User
+uid: admin.user
+userPassword: polyglotted
+
+dn: cn=Project LDAP,ou=Admin,dc=ad,dc=polyglotted,dc=io
+objectClass: user
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Project LDAP
+instanceType: 4
+distinguishedName: cn=Project LDAP,ou=Admin,dc=ad,dc=polyglotted,dc=io
+sAMAccountName: projectldap
+userPassword: Zh5efBPL
