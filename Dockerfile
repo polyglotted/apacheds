@@ -9,9 +9,9 @@ RUN apk add --update zip unzip openldap-clients wget && \
 	mkdir -p /opt && \
 	cd /opt && \
 	wget --no-check-certificate https://www.apache.org/dist/directory/apacheds/dist/2.0.0-${DS_VER}/${DS_NAME}.zip && \
-	unzip ${DS_NAME} && \
+	unzip ${DS_NAME}.zip && \
 	apk del zip unzip && \
-	rm ${DS_NAME}
+	rm ${DS_NAME}.zip
 
 WORKDIR /opt/${DS_NAME}
 
