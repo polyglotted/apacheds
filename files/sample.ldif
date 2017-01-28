@@ -1,182 +1,127 @@
-dn: dc=ad,dc=polyglotted,dc=io
-objectClass: domainDNS
-objectClass: domain
-objectClass: top
-dc: ad
-instanceType: 5
-
-dn: ou=Admin,dc=ad,dc=polyglotted,dc=io
+version: 1
+#SCHEMA
+dn: cn=microsoft, ou=schema
+objectclass: metaSchema
 objectclass: top
+cn: microsoft
+
+dn: ou=attributetypes, cn=microsoft, ou=schema
 objectclass: organizationalUnit
+objectclass: top
+ou: attributetypes
+
+dn: m-oid=1.2.840.113556.1.4.221, ou=attributetypes, cn=microsoft, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.2.840.113556.1.4.221
+m-name: sAMAccountName
+m-equality: caseIgnoreMatch
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singleValue: TRUE
+
+dn: m-oid=1.2.840.113556.1.4.222, ou=attributetypes, cn=microsoft, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.2.840.113556.1.4.222
+m-name: memberOf
+m-equality: caseIgnoreMatch
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singleValue: FALSE
+
+dn: ou=objectclasses, cn=microsoft, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: objectClasses
+
+dn: m-oid=1.2.840.113556.1.5.6, ou=objectclasses, cn=microsoft, ou=schema
+objectclass: metaObjectClass
+objectclass: metaTop
+objectclass: top
+m-oid: 1.2.840.113556.1.5.6
+m-name: simulatedMicrosoftSecurityPrincipal
+m-supObjectClass: top
+m-typeObjectClass: AUXILIARY
+m-must: sAMAccountName
+m-may: memberOf
+
+#GROUPS
+dn: ou=People,dc=polyglotted,dc=io
+objectclass: organizationalUnit
+objectclass: top
 ou: people
-distinguishedName: ou=People,dc=ad,dc=polyglotted,dc=io
 
-dn: ou=People,dc=ad,dc=polyglotted,dc=io
-objectclass: top
+dn: ou=Admin,dc=polyglotted,dc=io
 objectclass: organizationalUnit
+objectclass: top
 ou: people
-distinguishedName: ou=Admin,dc=ad,dc=polyglotted,dc=io
+ou: Admin
 
-dn: ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectclass: top
+dn: ou=Groups,dc=polyglotted,dc=io
 objectclass: organizationalUnit
+objectclass: top
 ou: groups
-distinguishedName: ou=Groups,dc=ad,dc=polyglotted,dc=io
 
-dn: ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: organizationalUnit
+dn: cn=Space Cadets,ou=Groups,dc=polyglotted,dc=io
+objectClass: organizationalRole
 objectClass: top
-instanceType: 4
-ou: Project
-distinguishedName: ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-
-dn: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: group
-objectClass: top
-instanceType: 4
 cn: Space Cadets
-distinguishedName: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted
- ,dc=io
-sAMAccountName: Space Cadets
-sAMAccountType: 268435456
 
-dn: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: group
+dn: cn=Junk Warriors,ou=Groups,dc=polyglotted,dc=io
+objectClass: organizationalRole
 objectClass: top
-instanceType: 4
-cn: Junk Warriors
-distinguishedName: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotte
- d,dc=io
-sAMAccountName: Junk Warriors
-sAMAccountType: 268435456
 
-dn: cn=Cookie Monsters,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: group
+dn: cn=Jolly Scouts,ou=Groups,dc=polyglotted,dc=io
+objectClass: organizationalRole
 objectClass: top
-instanceType: 4
-cn: Cookie Monsters
-distinguishedName: cn=Cookie Monsters,ou=Project,ou=Groups,dc=ad,dc=polyglot
- ted,dc=io
-sAMAccountName: Junk Warriors
-sAMAccountType: 268435456
 
-dn: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: group
+dn: cn=Tinsel Clowns,ou=Groups,dc=polyglotted,dc=io
+objectClass: organizationalRole
 objectClass: top
-instanceType: 4
-cn: Jolly Scouts
-distinguishedName: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted
- ,dc=io
-sAMAccountName: Junk Warriors
-sAMAccountType: 268435456
 
-dn: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-objectClass: group
+#USERS
+dn: cn=Modeler_User,ou=People,dc=polyglotted,dc=io
 objectClass: top
-instanceType: 4
-cn: Tinsel Clowns
-distinguishedName: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotte
- d,dc=io
-sAMAccountName: Junk Warriors
-sAMAccountType: 268435456
-
-dn: cn=Shankar Vasudevan,ou=People,dc=ad,dc=polyglotted,dc=io
-objectClass: user
-objectClass: organizationalPerson
 objectClass: person
-objectClass: top
-cn: Shankar Vasudevan
-instanceType: 4
-country: United Kingdom
-description: Director
-displayName: Shankar Vasudevan
-distinguishedName: cn=Shankar Vasudevan,ou=People,dc=ad,dc=polyglotted,dc=io
-givenName: Shankar
-member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-mail: shankar@polyglotted.io
-name: Shankar Vasudevan
-sAMAccountName: shankar.vasudevan
-sn: Vasudevan
-uid: shankar.vasudevan
-userPassword: polyglotted
-
-dn: cn=David Haines,ou=People,dc=ad,dc=polyglotted,dc=io
-objectClass: user
 objectClass: organizationalPerson
-objectClass: person
-objectClass: top
-cn: David Haines
-instanceType: 4
-country: United Kingdom
-description: Director
-displayName: David Haines
-distinguishedName: cn=David Haines,ou=People,dc=ad,dc=polyglotted,dc=io
-givenName: David
-member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-mail: david@polyglotted.io
-name: David Haines
-sAMAccountName: david.haines
-sn: Haines
-uid: david.haines
-userPassword: polyglotted
-
-dn: cn=Modeler User,ou=People,dc=ad,dc=polyglotted,dc=io
-objectClass: user
-objectClass: organizationalPerson
-objectClass: person
-objectClass: top
-cn: Modeler User
-instanceType: 4
-country: United Kingdom
+objectClass: inetOrgPerson
+objectclass: simulatedMicrosoftSecurityPrincipal
+sn: Modeler User
 description: Modeler
 displayName: Modeler User
-distinguishedName: cn=Modeler User,ou=People,dc=ad,dc=polyglotted,dc=io
-givenName: Modeler
-member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
 mail: modeler@polyglotted.io
-name: Modeler User
+memberOf: cn=Space Cadets,ou=Groups,dc=polyglotted,dc=io
+memberOf: cn=Junk Warriors,ou=Groups,dc=polyglotted,dc=io
+memberOf: cn=Jolly Scouts,ou=Groups,dc=polyglotted,dc=io
 sAMAccountName: modeler.user
-sn: User
 uid: modeler.user
 userPassword: polyglotted
 
-dn: cn=Admin User,ou=People,dc=ad,dc=polyglotted,dc=io
-objectClass: user
-objectClass: organizationalPerson
-objectClass: person
+dn: cn=Admin_User,ou=People,dc=polyglotted,dc=io
 objectClass: top
-cn: Admin User
-instanceType: 4
-country: United Kingdom
-description: Administrator
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectclass: simulatedMicrosoftSecurityPrincipal
+sn: Admin User
+description: Admin
 displayName: Admin User
-distinguishedName: cn=Admin User,ou=People,dc=ad,dc=polyglotted,dc=io
-givenName: Admin
-member: cn=Space Cadets,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Junk Warriors,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Tinsel Clowns,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
-member: cn=Jolly Scouts,ou=Project,ou=Groups,dc=ad,dc=polyglotted,dc=io
 mail: admin@polyglotted.io
-name: Admin User
+memberOf: cn=Space Cadets,ou=Groups,dc=polyglotted,dc=io
+memberOf: cn=Junk Warriors,ou=Groups,dc=polyglotted,dc=io
+memberOf: cn=Jolly Scouts,ou=Groups,dc=polyglotted,dc=io
+memberOf: cn=Tinsel Clowns,ou=Groups,dc=polyglotted,dc=io
 sAMAccountName: admin.user
-sn: User
 uid: admin.user
 userPassword: polyglotted
 
-dn: cn=Project LDAP,ou=Admin,dc=ad,dc=polyglotted,dc=io
-objectClass: user
-objectClass: organizationalPerson
-objectClass: person
+dn: cn=Project_LDAP,ou=Admin,dc=polyglotted,dc=io
 objectClass: top
-cn: Project LDAP
-instanceType: 4
-distinguishedName: cn=Project LDAP,ou=Admin,dc=ad,dc=polyglotted,dc=io
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectclass: simulatedMicrosoftSecurityPrincipal
+sn: Project LDAP
 sAMAccountName: projectldap
 userPassword: Zh5efBPL
