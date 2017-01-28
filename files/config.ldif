@@ -705,7 +705,7 @@ objectclass: organizationalUnit
 objectclass: top
 
 dn: ads-transportid=ldap,ou=transports,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
-ads-systemport: 389
+ads-systemport: 10389
 ads-transportnbthreads: 8
 ads-transportaddress: 0.0.0.0
 ads-transportid: ldap
@@ -716,7 +716,7 @@ objectclass: top
 ads-enabled: TRUE
 
 dn: ads-transportid=ldaps,ou=transports,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
-ads-systemport: 636
+ads-systemport: 10636
 ads-transportenablessl: TRUE
 ads-transportaddress: 0.0.0.0
 ads-transportid: ldaps
