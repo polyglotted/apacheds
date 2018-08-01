@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/golang
-      - image: polyglotted/java-base
     working_directory: ~/apacheds
     environment:
       artifact_dir: "artifacts"
@@ -31,7 +30,6 @@ jobs:
   deploy:
     docker:
       - image: circleci/golang
-      - image: polyglotted/java-base
     working_directory: ~/apacheds
     steps:
       - checkout
