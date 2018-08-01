@@ -20,7 +20,7 @@ COPY files/adminpwd.ldif /tmp/
 COPY files/sample.ldif /tmp/
 
 RUN chmod ugo+x bin/apacheds.sh && \
-    bin/apacheds.sh start && sleep 20 && \
+    bin/apacheds.sh start && sleep 30 && \
     ldapmodify -h 127.0.0.1 -p 10389 -x -a -f /tmp/sample.ldif &&  \
     ldapmodify -h 127.0.0.1 -p 10389 -x -D "uid=admin,ou=system" -w secret -f /tmp/adminpwd.ldif &&  \
     bin/apacheds.sh stop && sleep 5 && \
