@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Setup Build Variables
           command: |
-            echo 'export VERSION=${CIRCLE_TAG:1}' >> $BASH_ENV
+            echo 'export VERSION=${CIRCLE_TAG}' >> $BASH_ENV
             echo 'export BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'`' >> $BASH_ENV
       - run:
           name: Build APacheDs
