@@ -1,0 +1,69 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang
+    working_directory: ~/apacheds
+    environment:
+      artifact_dir: "artifacts"
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup Build Variables
+          command: |
+            echo 'export BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'`' >> $BASH_ENV
+      - run:
+          name: Build ApacheDs
+          command: |
+            ./build.sh
+      - run:
+          name: Collect Artifacts
+          command: |
+            mkdir -p ${artifact_dir}/docker/
+            docker images > ${artifact_dir}/docker/images.txt
+            docker inspect polyglotted/apacheds > ${artifact_dir}/docker/info.txt
+          when: always
+      - store_artifacts:
+          path: artifacts
+
+  deploy:
+    docker:
+      - image: circleci/golang
+    working_directory: ~/apacheds
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup Build Variables
+          command: |
+            echo 'export VERSION=${CIRCLE_TAG:1}' >> $BASH_ENV
+            echo 'export BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'`' >> $BASH_ENV
+      - run:
+          name: Build APacheDs
+          command: |
+            echo 'VERSION='$VERSION
+            ./build.sh $VERSION
+            docker inspect polyglotted/apacheds:$VERSION
+      - deploy:
+          name: DockerHub Deploy
+          command: |
+            echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+            docker push polyglotted/apacheds:$VERSION
+
+workflows:
+  version: 2
+  build-n-deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /v[0-9]+(\.[0-9]+).*/
+            branches:
+              ignore: /.*/
