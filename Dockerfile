@@ -1,6 +1,10 @@
 FROM polyglotted/java-base
 MAINTAINER pgtdev@polyglotted.io
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+
 ENV DS_VER M24
 ENV DS_NAME apacheds-2.0.0-${DS_VER}
 WORKDIR /tmp
@@ -18,6 +22,15 @@ WORKDIR /opt/${DS_NAME}
 COPY files/config.ldif /opt/${DS_NAME}/instances/default/conf/
 COPY files/adminpwd.ldif /tmp/
 COPY files/sample.ldif /tmp/
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="Polyglotted ApacheDS" \
+      org.label-schema.description="Apache Directory Server container" \
+      org.label-schema.url="http://polyglotted.io" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/polyglotted/apacheds" \
+      org.label-schema.vendor="Polyglotted Limited" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
 
 RUN chmod ugo+x bin/apacheds.sh && \
     bin/apacheds.sh start && sleep 30 && \
